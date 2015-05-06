@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :fluxes
+
   devise_for :users
   resources :widgets
 

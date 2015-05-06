@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Url:</strong>
+  <%= @flux.url %>
+</p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @flux.title %>
+</p>
+
+<%= link_to 'Edit', edit_flux_path(@flux) %> |
+<%= link_to 'Back', fluxes_path %>

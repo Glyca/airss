@@ -1,0 +1,27 @@
+<h1>Listing fluxes</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Url</th>
+      <th>Title</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @fluxes.each do |flux| %>
+      <tr>
+        <td><%= flux.url %></td>
+        <td><%= flux.title %></td>
+        <td><%= link_to 'Show', flux %></td>
+        <td><%= link_to 'Edit', edit_flux_path(flux) %></td>
+        <td><%= link_to 'Destroy', flux, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Flux', new_flux_path %>
