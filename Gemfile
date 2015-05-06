@@ -31,6 +31,9 @@ gem 'spring',        group: :development
 
 gem 'puma'
 
+# For User
+gem 'devise'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
