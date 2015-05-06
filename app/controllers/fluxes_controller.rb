@@ -1,5 +1,6 @@
 class FluxesController < ApplicationController
-  before_action :set_flux, only: [:show, :edit, :update, :destroy]
+  before_filter :check_user
+  before_action :set_flux, :authenticate_user!, only: [:show, :edit, :update, :destroy]
 
   respond_to :html
 
@@ -39,6 +40,10 @@ class FluxesController < ApplicationController
   private
     def set_flux
       @flux = Flux.find(params[:id])
+    end
+
+    def check_user
+        redirect_to url_for :controller => 'devise/sessions', :action => 'new' and return unless user_signed_in?
     end
 
     def flux_params
