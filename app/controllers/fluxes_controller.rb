@@ -1,6 +1,8 @@
+require 'open-uri'
+
 class FluxesController < ApplicationController
   before_filter :check_user
-  before_action :set_flux, :authenticate_user!, only: [:show, :edit, :update, :destroy]
+  before_action :set_flux, :authenticate_user!, only: [:show, :update, :destroy]
 
   respond_to :html
 
@@ -18,11 +20,10 @@ class FluxesController < ApplicationController
     respond_with(@flux)
   end
 
-  def edit
-  end
-
   def create
     @flux = Flux.new(flux_params)
+    rss = SimpleRSS.parse open(@flux.url)
+    @flux.title = rss.channel.title
     @flux.save
     respond_with(@flux)
   end
@@ -47,6 +48,8 @@ class FluxesController < ApplicationController
     end
 
     def flux_params
-      params.require(:flux).permit(:url, :title)
+      params.require(:flux).permit(:url)
     end
 end
+
+#:title

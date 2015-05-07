@@ -34,9 +34,13 @@ gem 'puma'
 # For User
 gem 'devise'
 
+# For RSS
+gem 'simple-rss'
+
+gem 'htmlentities'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
-

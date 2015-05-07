@@ -10,5 +10,16 @@
   <%= @flux.title %>
 </p>
 
+<% @flux.items.each do |article| %>
+<p>
+<strong> <%= article.title.force_encoding('UTF-8') %> </strong> <%= article.pubDate %>
+<br>
+<%= article.description  %>
+<br>
+
+
+</p>
+<% end %>
+
 <%= link_to 'Edit', edit_flux_path(@flux) %> |
 <%= link_to 'Back', fluxes_path %>
