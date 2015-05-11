@@ -12,12 +12,10 @@
 
 <% @flux.items.each do |article| %>
 <p>
-<strong> <%= article.title.force_encoding('UTF-8') %> </strong> <%= article.pubDate %>
+<strong> <%= article.title %> </strong> <%= article.date %>
 <br>
-<%= article.description  %>
+<%= article.description.html_safe %>
 <br>
-
-
 </p>
 <% end %>
 
