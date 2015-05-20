@@ -7,7 +7,7 @@ class FluxesController < ApplicationController
   respond_to :html
 
   def index
-    @fluxes = Flux.all
+    @fluxes = Flux.paginate(:page => params[:page], :per_page => 5)
     respond_with(@fluxes)
   end
 

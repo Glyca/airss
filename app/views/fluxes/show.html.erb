@@ -14,8 +14,12 @@
 <p>
 <strong> <%= article.title %> </strong> <%= article.date %>
 <br>
+<img src= "<%= article.image %>" >
 <%= article.description.html_safe %>
 <br>
+</p>
+<p>
+  <%= link_to 'lire la suite', article.url %>
 </p>
 <% end %>
 
