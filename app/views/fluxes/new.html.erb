@@ -1,9 +1,9 @@
-<h1>New flux</h1>
+<h1>Nouveau flux</h1>
 
 <%#= render 'form' %>
 <%= form_for @flux, url: {action: "create"} do |f| %>
 <%= f.text_field :url %>
-<%= f.submit "Create" %>
+<%= f.submit "Nouveau" %>
 <% end %>
 
-<%= link_to 'Back', fluxes_path %>
+<%= link_to 'Retour', fluxes_path %>

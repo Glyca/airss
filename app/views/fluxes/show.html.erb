@@ -15,13 +15,12 @@
 <strong> <%= article.title %> </strong> <%= article.date %>
 <br>
 <img src= "<%= article.image %>" >
+<br>
 <%= article.description.html_safe %>
 <br>
-</p>
-<p>
-  <%= link_to 'lire la suite', article.url %>
+<%= link_to 'lire la suite', article.url %>
 </p>
 <% end %>
 
-<%= link_to 'Edit', edit_flux_path(@flux) %> |
-<%= link_to 'Back', fluxes_path %>
+<%= link_to 'Edition', edit_flux_path(@flux) %> |
+<%= link_to 'Retour', fluxes_path %>
