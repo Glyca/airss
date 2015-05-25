@@ -19,7 +19,7 @@ class FluxesController < ApplicationController
     @flux = Flux.new
     respond_with(@flux)
   end
-
+  
   def create
     @flux = Flux.new(flux_params)
     rss = SimpleRSS.parse open(@flux.url)

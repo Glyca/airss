@@ -40,9 +40,15 @@
                     </li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
+                  <% if  !user_signed_in? %>
                   <li>
                     <%= link_to 'Inscription',new_user_registration_path %>
                   </li>
+                  <% else %>
+                  <li>
+                      <%= link_to 'Profil', edit_user_registration_path %>
+                  </li>
+                  <% end %>
                   <% if  !user_signed_in? %>
                     <li>
                         <%= link_to 'Connexion',new_user_session_path %>
