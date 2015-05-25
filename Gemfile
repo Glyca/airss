@@ -43,8 +43,8 @@ gem 'htmlentities'
 #Use for paginate
 gem 'will_paginate', '~> 3.0.6'
 
-#Valdation Email
-gem 'email_validator'
+#Send Mail
+gem 'mailgun'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
