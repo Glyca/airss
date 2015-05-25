@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<%= link_to 'Retour vers ' + @article.flux.title, flux_path(@article.flux) %>
+
+<p>
+  <h1><%= @article.title %></h1>
+</p>
+
+<p>
+  <strong>Publié le :</strong>
+  <%= @article.pub_date %>
+</p>
+
+<p>
+<img src="<%= @article.image_url %>">
+</p>
+
+<p>
+  <%= link_to 'Voir sur le site', @article.url %>
+</p>
+
+<p>
+  <%= @article.content.html_safe %>
+</p>
