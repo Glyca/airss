@@ -6,22 +6,26 @@
   <%= @flux.url %>
 </p>
 
-<p>
-  <strong>Title:</strong>
-  <%= @flux.title %>
-</p>
+<h1><%= @flux.title %></h1>
 
-<% @flux.items.each do |article| %>
-<p>
-<strong> <%= article.title %> </strong> <%= article.date %>
-<br>
-<img src= "<%= article.image %>" >
-<br>
-<%= article.description.html_safe %>
-<br>
-<%= link_to 'lire la suite', article.url %>
-</p>
+<div class="row">
+
+<% @flux.articles.each do |article| %>
+
+  <div class="col-sm-6 col-md-4 extrait">
+    <div class="thumbnail">
+      <a href="<%= article_path(:id => article.id) %>">
+      <img src="<%= article.image_url %>" alt="<%= article.title %>">
+      <div class="caption">
+        <h4><%= article.title %></h4>
+      </div>
+      </a>
+    </div>
+  </div>
+
 <% end %>
 
-<%= link_to 'Edition', edit_flux_path(@flux) %> |
-<%= link_to 'Retour', fluxes_path %>
+</div>
+
+<p><a href="<%= edit_flux_path(@flux) %>" class="btn btn-default" role="button">Modifier</a>
+  <%= link_to 'Supprimer', @flux, method: :delete, :class => "btn btn-danger" %>

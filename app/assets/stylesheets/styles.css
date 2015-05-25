@@ -107,3 +107,12 @@ body {
 	bottom:0;
 	left:0;
 }
+
+.thumbnail .caption p {
+  height: 120px;
+  overflow: hidden;
+}
+
+div.extrait {
+  height: 315px;
+}

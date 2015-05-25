@@ -37,7 +37,6 @@ gem 'devise-i18n'
 
 # For RSS
 gem 'simple-rss'
-
 gem 'htmlentities'
 
 #Use for paginate

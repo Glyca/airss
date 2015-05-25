@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :articles
   resources :fluxes
 
   devise_for :users
@@ -21,7 +22,7 @@ Rails.application.routes.draw do
   #   resources :products
 
   # Example resource route with options:
-  #   resources :products do
+  #   resourc fluxes#destroy es :products do
   #     member do
   #       get 'short'
   #       post 'toggle'

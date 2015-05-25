@@ -41,6 +41,19 @@ class FluxesController < ApplicationController
   private
     def set_flux
       @flux = Flux.find(params[:id])
+
+      # Suppression de tous les articles
+      @flux.articles.delete_all
+
+      # On recharge la liste des flux depuis le site
+      SimpleRSS.item_tags << :'enclosure#url'
+      rss = SimpleRSS.parse open(@flux.url)
+      coder = HTMLEntities.new
+      rss.items.each {|article|
+        title = article.title.force_encoding('UTF-8')
+        description = coder.decode(article.description.force_encoding('UTF-8'))
+        @flux.articles.create(title: title, content: description, url: article.link, pub_date: article.pubDate, image_url: article.enclosure_url)
+        }
     end
 
     def check_user
