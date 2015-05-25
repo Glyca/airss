@@ -10,6 +10,11 @@ class ArticlesController < ApplicationController
   private
     def set_article
       @article = Article.find(params[:id])
+      if @article.views.nil?
+        @article.views = 0
+      end
+      @article.views += 1;
+      @article.save
     end
 
     def article_params

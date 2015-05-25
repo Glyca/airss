@@ -8,6 +8,8 @@
 
 <h1><%= @flux.title %></h1>
 
+<p>Mis à jour le <%= @flux.fetched_at.to_s %></p>
+
 <div class="row">
 
 <% @flux.articles.each do |article| %>
