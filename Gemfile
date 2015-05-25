@@ -42,6 +42,9 @@ gem 'htmlentities'
 #Use for paginate
 gem 'will_paginate', '~> 3.0.6'
 
+#Send Mail
+gem 'mailgun'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
