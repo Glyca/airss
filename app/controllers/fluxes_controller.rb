@@ -7,7 +7,7 @@ class FluxesController < ApplicationController
   respond_to :html
 
   def index
-    @fluxes = Flux.paginate(:page => params[:page], :per_page => 5)
+    @fluxes = Flux.where(:user => current_user).paginate(:page => params[:page], :per_page => 5)
     respond_with(@fluxes)
   end
 
@@ -24,6 +24,7 @@ class FluxesController < ApplicationController
     @flux = Flux.new(flux_params)
     rss = SimpleRSS.parse open(@flux.url)
     @flux.title = rss.channel.title
+    @flux.user = current_user
     @flux.save
     respond_with(@flux)
   end
@@ -41,6 +42,10 @@ class FluxesController < ApplicationController
   private
     def set_flux
       @flux = Flux.find(params[:id])
+
+      if(@flux.user != current_user)
+        return
+      end
 
       if @flux == nil
         return

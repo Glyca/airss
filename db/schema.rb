@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150526122551) do
+ActiveRecord::Schema.define(version: 20150526125912) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -36,7 +36,10 @@ ActiveRecord::Schema.define(version: 20150526122551) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.datetime "fetched_at"
+    t.integer  "user_id"
   end
+
+  add_index "fluxes", ["user_id"], name: "index_fluxes_on_user_id", using: :btree
 
   create_table "users", force: true do |t|
     t.string   "name"
