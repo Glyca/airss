@@ -1,5 +1,25 @@
-<h1>Bienvenue dans votre agrégateur de Flux RSS</h1>
+<h1>Hub de la communauté</h1>
 
-<p>
-  <%= link_to 'Accéder à mes flux ',fluxes_path %>
+<p style="text-align: center; margin: 30px;">
+  <%= link_to 'Accéder à mes flux', fluxes_path, :class => 'btn btn-default' %>
 </p>
+
+<div class="row">
+
+<% @articles.each do |article| %>
+
+  <div class="col-sm-6 col-md-4 extrait">
+    <div class="thumbnail">
+      <a href="<%= article_path(:id => article.id) %>">
+      <img src="<%= article.image_url %>" alt="<%= article.title %>">
+      <div class="caption">
+        <p class="popularity"><%= article.views %></p>
+        <h4><%= article.title %></h4>
+      </div>
+      </a>
+    </div>
+  </div>
+
+<% end %>
+
+</div>
