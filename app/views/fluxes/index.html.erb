@@ -14,9 +14,8 @@
       <tr>
         <td><%= flux.url %></td>
         <td><%= flux.title %></td>
-        <td><%= link_to 'Afficher', flux %></td>
-        <td> - </td>
-        <td><%= link_to 'Supprimer', flux, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Afficher', flux, :class => "btn btn-danger" %></td>
+        <td><%= link_to 'Supprimer', flux, method: :delete, data: { confirm: 'Êtes vous sûr ?' }, :class => "btn btn-danger" %></td>
       </tr>
     <% end %>
   </tbody>
