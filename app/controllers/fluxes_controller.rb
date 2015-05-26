@@ -19,7 +19,7 @@ class FluxesController < ApplicationController
     @flux = Flux.new
     respond_with(@flux)
   end
-  
+
   def create
     @flux = Flux.new(flux_params)
     rss = SimpleRSS.parse open(@flux.url)
@@ -42,7 +42,11 @@ class FluxesController < ApplicationController
     def set_flux
       @flux = Flux.find(params[:id])
 
-      if @flux.fetched_at < (Time.new - 60*15)
+      if @flux == nil
+        return
+      end
+
+      if @flux.fetched_at == nil || @flux.fetched_at < (Time.new - 60*15)
         # Suppression de tous les articles
         @flux.articles.delete_all
 
@@ -53,7 +57,7 @@ class FluxesController < ApplicationController
         rss.items.each {|article|
           title = article.title.force_encoding('UTF-8')
           description = coder.decode(article.description.force_encoding('UTF-8'))
-          @flux.articles.create(title: title, content: description, url: article.link, pub_date: article.pubDate, image_url: article.enclosure_url)
+          @flux.articles.create(title: title, content: description, url: article.link, pub_date: article.pubDate, image_url: article.enclosure_url, views: 0)
           }
 
         @flux.fetched_at = Time.new

@@ -116,3 +116,9 @@ body {
 div.extrait {
   height: 315px;
 }
+
+div.extrait p.popularity {
+  float: right;
+  color: #ccc;
+  font-size: 12px;
+}

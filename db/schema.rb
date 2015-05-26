@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150525153032) do
+ActiveRecord::Schema.define(version: 20150526122551) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,7 +25,7 @@ ActiveRecord::Schema.define(version: 20150525153032) do
     t.datetime "updated_at"
     t.integer  "flux_id"
     t.text     "url"
-    t.integer  "views"
+    t.integer  "views",      null: false
   end
 
   add_index "articles", ["flux_id"], name: "index_articles_on_flux_id", using: :btree

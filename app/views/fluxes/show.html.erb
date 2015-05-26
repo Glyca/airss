@@ -1,14 +1,16 @@
 <p id="notice"><%= notice %></p>
 
-<%= link_to 'Retour', fluxes_path %>
 <p>
-  <strong>Url:</strong>
-  <%= @flux.url %>
+  <%= link_to 'Retour', fluxes_path %>
+</p>
+
+<p>
+
 </p>
 
 <h1><%= @flux.title %></h1>
 
-<p>Mis à jour le <%= @flux.fetched_at.to_s %></p>
+<p>Mis à jour le <%= @flux.fetched_at.to_s %> - <%= link_to @flux.url, @flux.url %></p>
 
 <div class="row">
 
@@ -19,6 +21,7 @@
       <a href="<%= article_path(:id => article.id) %>">
       <img src="<%= article.image_url %>" alt="<%= article.title %>">
       <div class="caption">
+        <p class="popularity"><%= article.views %></p>
         <h4><%= article.title %></h4>
       </div>
       </a>
@@ -29,4 +32,4 @@
 
 </div>
 
-  <%= link_to 'Supprimer', @flux, method: :delete, :class => "btn btn-danger" %>
+<%= link_to 'Supprimer', @flux, method: :delete, :class => "btn btn-danger" %>
