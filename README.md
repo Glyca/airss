@@ -30,7 +30,7 @@ bundle install
 * Configurez maintenant la base de données grâce à la commande suivante :
 
 ```sh
-bundle exec rake db:setup
+bundle exec rake db:setup db:migrate
 ```
 
 * Pour configurer l'envoye de mail avec [mailgun](http://www.mailgun.com/) créez un fichier **.env** à la racine de votre application contenant les champs suivants :
