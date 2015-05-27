@@ -1,8 +1,10 @@
 <h1>Hub de la communauté</h1>
 
+<% if  user_signed_in? %>
 <p style="text-align: center; margin: 30px;">
   <%= link_to 'Accéder à mes flux', fluxes_path, :class => 'btn btn-default' %>
 </p>
+<% end %>
 
 <div class="row">
 
