@@ -16,7 +16,7 @@ avec PostgreSQL installé et configuré*
 
 * Créez un répertoire airss à l'endroit ou vous souhaitez installer l'aggregateur
 
-* Déplacez vous dans ce dossier à l'aide de la commande ```sh cd ``` puis lancez la commande suivante :
+* Déplacez vous dans ce dossier à l'aide de la commande ``` cd ``` puis lancez la commande suivante :
 
 ```sh
 git clone https://github.com/Glyca/airss.git
