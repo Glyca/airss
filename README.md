@@ -1,6 +1,6 @@
 # AiRSS
 
-Projet IPW 204/2015 : Aggregateur de flux RSS
+Projet IPW 204/2015 : Agrégateur de flux RSS
 
 Version en Ligne du site web avec Heroku [ici](http://airss.herokuapp.com/).
 
@@ -45,7 +45,7 @@ MAILGUN_PASSWORD=
 bundle exec rails server
 ```
 
-* Pour accéder à l'aggregateur, lancez un navigateur web et tapez :
+* Pour accéder à l'agrégateur, lancez un navigateur web et tapez :
 
 ```sh
 localhost:3000
