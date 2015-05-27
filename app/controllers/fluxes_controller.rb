@@ -8,7 +8,8 @@ class FluxesController < ApplicationController
 
   def index
     @fluxes = Flux.where(:user => current_user).paginate(:page => params[:page], :per_page => 5)
-    respond_with(@fluxes)
+    @articles = Article.order(pub_date: :desc).limit(9)
+    respond_with(@fluxes, @articles)
   end
 
   def show

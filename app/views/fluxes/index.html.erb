@@ -1,4 +1,8 @@
-<h1>Mes flux</h1>
+<h1>Gestion des flux</h1>
+
+<p>
+<%= link_to 'Ajouer un flux', new_flux_path, :class => "btn btn-default" %>
+</p>
 
 <table class="table">
   <thead>
@@ -24,4 +28,26 @@
 
 <br>
 <%= will_paginate @fluxes %>
-<%= link_to 'Ajouer un flux', new_flux_path, :class => "btn btn-default" %>
+
+<h1>Derniers articles</h1>
+
+<div class="row">
+
+<% @articles.each do |article| %>
+
+  <div class="col-sm-6 col-md-4 extrait">
+    <div class="thumbnail">
+      <a href="<%= article_path(:id => article.id) %>">
+      <% if article.image_url != nil %>
+        <img src="<%= article.image_url %>" alt="<%= article.title %>">
+      <% end %>
+      <div class="caption">
+        <p class="popularity"><%= article.views %></p>
+        <h4><%= article.title %></h4>
+      </div>
+      </a>
+    </div>
+  </div>
+
+<% end %>
+</div>

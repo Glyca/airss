@@ -104,7 +104,7 @@ body > .container {
 }
 
 .border-form-div {
-  max-width: 300px;
+  max-width: 400px;
   padding: 19px 29px 29px;
   margin: 0 auto 20px;
   background-color: #fff;
@@ -130,7 +130,7 @@ body > .container {
 }
 
 .border-form-left {
-  max-width: 300px;
+  max-width: 600px;
   padding: 19px 29px 29px;
   margin: 0 20px;
   background-color: #fff;
@@ -176,4 +176,16 @@ div.extrait p.popularity {
   float: right;
   color: #ccc;
   font-size: 12px;
+}
+
+h1 {
+  margin-bottom: 20px;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+.thumbnail:hover {
+  background: #eee;
 }
