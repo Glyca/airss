@@ -1,35 +1,52 @@
-# ruby-getting-started
+# AiRSS
 
-A barebones Rails app, which can easily be deployed to Heroku.
+Projet IPW 204/2015 : Aggregateur de flux RSS
 
-This application support the [Getting Started with Ruby on Heroku](https://devcenter.heroku.com/articles/getting-started-with-ruby) article - check it out.
+Version en Ligne du site web avec Heroku [ici](http://airss.herokuapp.com/).
 
-## Running Locally
+## Prérequis
 
-Make sure you have Ruby installed.  Also, install the [Heroku Toolbelt](https://toolbelt.heroku.com/).
+ * Ruby (>= 2.2) [Documentation Ubuntu](http://doc.ubuntu-fr.org/rubyonrails).
+ * PostgreSQL [Documentation Ubuntu](http://doc.ubuntu-fr.org/postgresql).
 
-```sh
-$ git clone git@github.com:heroku/ruby-getting-started.git
-$ cd ruby-getting-started
-$ bundle install
-$ rake db:create db:migrate
-$ foreman start web
-```
+## Installation
 
-Your app should now be running on [localhost:5000](http://localhost:5000/).
+*L'installation a été testée sur des versions d'Ubuntu >= 14.10
+avec PostgreSQL installé et configuré*
 
-## Deploying to Heroku
+* Créez un répertoire airss à l'endroit ou vous souhaitez installer l'aggregateur
+
+* Déplacez vous dans ce dossier à l'aide de la commande ```sh cd ``` puis lancez la commande suivante :
 
 ```sh
-$ heroku create
-$ git push heroku master
-$ heroku run rake db:migrate
-$ heroku open
+git clone https://github.com/Glyca/airss.git
 ```
 
-## Documentation
+* une fois que le clone a été fait, afin d'importer toute les gem nécessaires au bon fonctionnement de l'application, lancez la commande :
+```sh
+bundle install
+```
 
-For more information about using Ruby on Heroku, see these Dev Center articles:
+* Configurez maintenant la base de données grâce à la commande suivante :
 
-- [Ruby on Heroku](https://devcenter.heroku.com/categories/ruby)
+```sh
+bundle exec rake db:setup
+```
 
+* Pour configurer l'envoye de mail avec [mailgun](http://www.mailgun.com/) créez un fichier **.env** à la racine de votre application contenant les champs suivants :
+```sh
+MAILGUN_DOMAIN=
+MAILGUN_USERNAME=
+MAILGUN_PASSWORD=
+```
+
+* Il vous reste plus qu'à lancer le serveur :
+```sh
+bundle exec rails server
+```
+
+* Pour accéder à l'aggregateur, lancez un navigateur web et tapez :
+
+```sh
+localhost:3000
+```
